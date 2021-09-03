@@ -114,3 +114,85 @@ app.use('/api', router);
 ## Probamos la estructura
 - Probamos en http://127.0.0.1:3000/api
 
+---------------------------------
+# Base de datos
+## 1. Instalar Sequelize ORM
+```
+npm install --save sequelize
+```
+## 2. Instalar manualmente el driver para la base de datos que elija:
+```
+$ npm install --save pg pg-hstore # Postgres  <-------
+$ npm install --save mysql2
+$ npm install --save mariadb
+$ npm install --save sqlite3
+$ npm install --save tedious # Microsoft SQL Server
+```
+- en el caso de postgres
+```
+npm install --save pg pg-hstore
+```
+
+## 3. Instalamos sequelize-CLI 
+```
+npm install --save-dev sequelize-cli
+```
+
+## 4. configurar sequelize para crear las carpetas en la direccion src
+- Creamos e archivo (.sequelizerc)
+```
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('src/config', 'database.json'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'seeders'),
+  'migrations-path': path.resolve('src', 'migrations')
+};
+```
+## 5. Arrancar la configuración base de sequelize
+```
+npx sequelize-cli init
+```
+
+## 6. Configurar la conexion con la Base de Datos.
+- En (src/config/database.json) configuramos para postgres
+``` json
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgresql",
+    "database": "database_back_node",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+
+```
+## 7. Crear la base de datos manualmente
+- con el nombre (database_back_node)
+
+## 8. Creación del primer modelo (Entidad) y su migración (tabla)
+- Para el Modelo Usuario y su migracion usuarios
+```
+npx sequelize-cli model:generate --name Usuario --attributes nombre:string,correo:string,password:string,estado:boolean
+```
+
+## 9. Ejecución de migraciones
+```
+npx sequelize-cli db:migrate
+```
