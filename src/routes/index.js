@@ -14,5 +14,8 @@ router.get("/saludo", function(req, res){
 // rutas usuario
 router.get("/usuario", usuarioController.listar);
 router.post("/usuario", usuarioController.guardar);
+router.get("/usuario/:id", usuarioController.mostrar);
+router.put("/usuario/:id", usuarioController.modificar);
+router.delete("/usuario/:id", usuarioController.eliminar);
 
 module.exports = router

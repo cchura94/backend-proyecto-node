@@ -1,0 +1,36 @@
+GET http://127.0.0.1:3000/api/usuario
+
+###
+
+POST http://127.0.0.1:3000/api/usuario
+Content-Type: application/json
+
+{
+    "nombre": "Oscar",
+    "correo": "oscar@gmail.com",
+    "password": "oscar12345",
+    "estado": true,
+    "rol": "admin"
+}
+
+### Mostrar un usuario por id
+
+GET http://127.0.0.1:3000/api/usuario/3
+
+### Modificar un usuario por id
+
+
+PUT http://127.0.0.1:3000/api/usuario/3
+Content-Type: application/json
+
+{
+    "nombre": "Andres",
+    "correo": "andres@gmail.com",
+    "password": "andres12345",
+    "estado": true,
+    "rol": "editor"
+}
+
+### Eliminar un usuario por id
+
+DELETE http://127.0.0.1:3000/api/usuario/3

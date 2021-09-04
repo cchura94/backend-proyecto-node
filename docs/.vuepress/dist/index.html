@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Comandos para iniciar un Nuevo Proyecto en Node.js</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="assets/js/app.d562b483.js" as="script"><link rel="preload" href="assets/js/2.ffb12fdd.js" as="script"><link rel="preload" href="assets/js/7.ceaf5508.js" as="script"><link rel="prefetch" href="assets/js/3.d801c6ba.js"><link rel="prefetch" href="assets/js/4.c610d016.js"><link rel="prefetch" href="assets/js/5.216dfe20.js"><link rel="prefetch" href="assets/js/6.73a8f323.js">
+    <link rel="stylesheet" href="assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="comandos-para-iniciar-un-nuevo-proyecto-en-node-js"><a href="#comandos-para-iniciar-un-nuevo-proyecto-en-node-js" class="header-anchor">#</a> Comandos para iniciar un Nuevo Proyecto en Node.js</h1> <h2 id="_1-iniciar-un-nuevo-proyecto-en-node"><a href="#_1-iniciar-un-nuevo-proyecto-en-node" class="header-anchor">#</a> 1. Iniciar un nuevo proyecto en Node</h2> <ul><li>creará un archivo (package.json) con la configuración por defecto de npm</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm init --y
+</code></pre></div><h2 id="_2-instalamos-el-framework-express-js"><a href="#_2-instalamos-el-framework-express-js" class="header-anchor">#</a> 2. Instalamos el Framework express.js</h2> <ul><li>descargará e instalará el framework express</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm i express
+</code></pre></div><ul><li>además creará una carpeta (node_modules) desde esta todas las dependencias de express y modifica el archivo package.json con la version de express</li></ul> <h2 id="_3-crear-una-carpeta-llamada-src-en-el-directorio-raiz"><a href="#_3-crear-una-carpeta-llamada-src-en-el-directorio-raiz" class="header-anchor">#</a> 3. Crear una carpeta llamada (src) en el directorio raiz</h2> <ul><li>En esta carpeta estará el codigo en entorno de desarrollo (dev)</li></ul> <h2 id="_4-opcional-configuracion-git"><a href="#_4-opcional-configuracion-git" class="header-anchor">#</a> 4. (opcional) Configuración GIT</h2> <h3 id="iniciar-un-nuevo-repositorio-git"><a href="#iniciar-un-nuevo-repositorio-git" class="header-anchor">#</a> iniciar un nuevo repositorio GIT</h3> <div class="language- extra-class"><pre class="language-text"><code>git init
+</code></pre></div><h3 id="creamos-dos-archivo-gitignore-readme-md"><a href="#creamos-dos-archivo-gitignore-readme-md" class="header-anchor">#</a> creamos dos archivo (.gitignore, README.md)</h3> <ul><li>.gitignore : ignora los archivos para no subir a un repositorio remoto (github, gitlab, bitbucket)</li> <li>README.md : agremos la descripción del proyecto y otros...</li></ul> <h3 id="subir-el-codigo-a-github"><a href="#subir-el-codigo-a-github" class="header-anchor">#</a> Subir el codigo a GITHUB</h3> <div class="language- extra-class"><pre class="language-text"><code>git add .
+git commit -m &quot;Proyecto Inicial&quot;
+</code></pre></div><h3 id="crear-el-repositorio-remoto-en-github-tener-una-cuenta-en-github"><a href="#crear-el-repositorio-remoto-en-github-tener-una-cuenta-en-github" class="header-anchor">#</a> crear el repositorio remoto en GITHUB (tener una cuenta en github)</h3> <div class="language- extra-class"><pre class="language-text"><code>git remote add origin https://github.com/cchura94/backend-proyecto-node.git
+
+git push origin master
+</code></pre></div><h2 id="_5-configurar-y-levantar-el-servidor-con-express"><a href="#_5-configurar-y-levantar-el-servidor-con-express" class="header-anchor">#</a> 5. Configurar y Levantar el Servidor con Express</h2> <ul><li>En la carpeta (src/index.js) creamos un archivo (index.js) y agregar el código de servidor con express</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// importar módulos</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// variables auxiliares</span>
+<span class="token keyword">let</span> <span class="token constant">PORT</span> <span class="token operator">=</span> <span class="token number">3000</span>
+<span class="token comment">// configuración de módulos</span>
+<span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// levantar el servidor</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token constant">PORT</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">El servidor está levantado en http://127.0.0.1:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">PORT</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="_6-configuracion-babel-soporte-es6"><a href="#_6-configuracion-babel-soporte-es6" class="header-anchor">#</a> 6. Configuración Babel (Soporte ES6)</h2> <ul><li>Con babel vamos a darle sporte a nuestro de javascript</li> <li>Babel transformará de ES6 a ES5</li></ul> <h3 id="_6-1-instalamos-dependencias-de-babel"><a href="#_6-1-instalamos-dependencias-de-babel" class="header-anchor">#</a> 6.1 Instalamos dependencias de babel</h3> <div class="language- extra-class"><pre class="language-text"><code>npm i @babel/cli @babel/node @babel/core @babel/preset-env -D
+</code></pre></div><h3 id="_6-2-creamos-un-archivo-babelrc-y-agregamos-la-configuracion"><a href="#_6-2-creamos-un-archivo-babelrc-y-agregamos-la-configuracion" class="header-anchor">#</a> 6.2 Creamos un archivo (.babelrc) y agregamos la configuración</h3> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">&quot;@babel/preset-env&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;targets&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;node&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_6-3-en-package-json-agregamos-comandos"><a href="#_6-3-en-package-json-agregamos-comandos" class="header-anchor">#</a> 6.3 En package.json agregamos comandos</h3> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nodemon --exec babel-node src/index.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel src/ --out-dir dist&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node dist/index.js&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_7-configuracion-de-rutas-con-express"><a href="#_7-configuracion-de-rutas-con-express" class="header-anchor">#</a> 7. Configuración de rutas con Express</h2> <ul><li>Crear una un archivo en la carpeta en (src/routes/index.js)</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> express <span class="token keyword">from</span> <span class="token string">'express'</span>
+<span class="token keyword">let</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// rutas</span>
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>mensaje<span class="token operator">:</span> <span class="token string">&quot;Bienvenido a la api del proyecto&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router
+</code></pre></div><h2 id="_8-habilitamos-las-rutas-en-src-index-js"><a href="#_8-habilitamos-las-rutas-en-src-index-js" class="header-anchor">#</a> 8 Habilitamos las rutas en src/index.js</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">&quot;./routes/index&quot;</span>
+
+<span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">,</span> router<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><h2 id="probamos-la-estructura"><a href="#probamos-la-estructura" class="header-anchor">#</a> Probamos la estructura</h2> <ul><li>Probamos en http://127.0.0.1:3000/api</li></ul> <hr> <h1 id="base-de-datos"><a href="#base-de-datos" class="header-anchor">#</a> Base de datos</h1> <h2 id="_1-instalar-sequelize-orm"><a href="#_1-instalar-sequelize-orm" class="header-anchor">#</a> 1. Instalar Sequelize ORM</h2> <div class="language- extra-class"><pre class="language-text"><code>npm install --save sequelize
+</code></pre></div><h2 id="_2-instalar-manualmente-el-driver-para-la-base-de-datos-que-elija"><a href="#_2-instalar-manualmente-el-driver-para-la-base-de-datos-que-elija" class="header-anchor">#</a> 2. Instalar manualmente el driver para la base de datos que elija:</h2> <div class="language- extra-class"><pre class="language-text"><code>$ npm install --save pg pg-hstore # Postgres  &lt;-------
+$ npm install --save mysql2
+$ npm install --save mariadb
+$ npm install --save sqlite3
+$ npm install --save tedious # Microsoft SQL Server
+</code></pre></div><ul><li>en el caso de postgres</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm install --save pg pg-hstore
+</code></pre></div><h2 id="_3-instalamos-sequelize-cli"><a href="#_3-instalamos-sequelize-cli" class="header-anchor">#</a> 3. Instalamos sequelize-CLI</h2> <div class="language- extra-class"><pre class="language-text"><code>npm install --save-dev sequelize-cli
+</code></pre></div><h2 id="_4-configurar-sequelize-para-crear-las-carpetas-en-la-direccion-src"><a href="#_4-configurar-sequelize-para-crear-las-carpetas-en-la-direccion-src" class="header-anchor">#</a> 4. configurar sequelize para crear las carpetas en la direccion src</h2> <ul><li>Creamos e archivo (.sequelizerc)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const path = require('path');
+
+module.exports = {
+  'config': path.resolve('src/config', 'database.json'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'seeders'),
+  'migrations-path': path.resolve('src', 'migrations')
+};
+</code></pre></div><h2 id="_5-arrancar-la-configuracion-base-de-sequelize"><a href="#_5-arrancar-la-configuracion-base-de-sequelize" class="header-anchor">#</a> 5. Arrancar la configuración base de sequelize</h2> <div class="language- extra-class"><pre class="language-text"><code>npx sequelize-cli init
+</code></pre></div><h2 id="_6-configurar-la-conexion-con-la-base-de-datos"><a href="#_6-configurar-la-conexion-con-la-base-de-datos" class="header-anchor">#</a> 6. Configurar la conexion con la Base de Datos.</h2> <ul><li>En (src/config/database.json) configuramos para postgres</li></ul> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;development&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;postgres&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;password&quot;</span><span class="token operator">:</span> <span class="token string">&quot;postgresql&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;database&quot;</span><span class="token operator">:</span> <span class="token string">&quot;database_back_node&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dialect&quot;</span><span class="token operator">:</span> <span class="token string">&quot;postgres&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;password&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;database&quot;</span><span class="token operator">:</span> <span class="token string">&quot;database_test&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dialect&quot;</span><span class="token operator">:</span> <span class="token string">&quot;mysql&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;production&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;password&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;database&quot;</span><span class="token operator">:</span> <span class="token string">&quot;database_production&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;dialect&quot;</span><span class="token operator">:</span> <span class="token string">&quot;mysql&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="_7-crear-la-base-de-datos-manualmente"><a href="#_7-crear-la-base-de-datos-manualmente" class="header-anchor">#</a> 7. Crear la base de datos manualmente</h2> <ul><li>con el nombre (database_back_node)</li></ul> <h2 id="_8-creacion-del-primer-modelo-entidad-y-su-migracion-tabla"><a href="#_8-creacion-del-primer-modelo-entidad-y-su-migracion-tabla" class="header-anchor">#</a> 8. Creación del primer modelo (Entidad) y su migración (tabla)</h2> <ul><li>Para el Modelo Usuario y su migracion usuarios</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npx sequelize-cli model:generate --name Usuario --attributes nombre:string,correo:string,password:string,estado:boolean
+</code></pre></div><h2 id="_9-ejecucion-de-migraciones"><a href="#_9-ejecucion-de-migraciones" class="header-anchor">#</a> 9. Ejecución de migraciones</h2> <div class="language- extra-class"><pre class="language-text"><code>npx sequelize-cli db:migrate
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="assets/js/app.d562b483.js" defer></script><script src="assets/js/2.ffb12fdd.js" defer></script><script src="assets/js/7.ceaf5508.js" defer></script>
+  </body>
+</html>

@@ -7,6 +7,12 @@ import router from "./routes/index"
 let PORT = 3000
 // configuración de módulos
 let app = express();
+
+// captura de datos del cliente en formato json (req.body)
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+// habilitar rutas
 app.use('/api', router);
 
 
