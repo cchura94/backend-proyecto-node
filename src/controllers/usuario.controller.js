@@ -1,4 +1,5 @@
 import models from "./../models"
+import bcrypt from "bcrypt"
 
 export const listar = async function(req, res){
     // Promesas
@@ -23,8 +24,12 @@ export const listar = async function(req, res){
 export const guardar = async (req, res) => {
     // async/await
     try{
-        console.log(req.body);
+        console.log("ANTES: ", req.body);
+        let BCRYPT_SALT_ROUNDS = 12
+        req.body.password = await bcrypt.hash(req.body.password, BCRYPT_SALT_ROUNDS)
         let datos = req.body
+
+        console.log("DESPUES: ", req.body);        
 
         let respuesta = await models.Usuario.create(datos)
         res.json({mensaje: "Usuario registrado"});

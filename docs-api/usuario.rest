@@ -6,9 +6,9 @@ POST http://127.0.0.1:3000/api/usuario
 Content-Type: application/json
 
 {
-    "nombre": "Oscar",
-    "correo": "oscar@gmail.com",
-    "password": "oscar12345",
+    "nombre": "Ana",
+    "correo": "ana@gmail.com",
+    "password": "ana12345",
     "estado": true,
     "rol": "admin"
 }
