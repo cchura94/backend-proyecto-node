@@ -3,6 +3,7 @@ let router = express.Router();
 import * as usuarioController from "./../controllers/usuario.controller"
 import * as authController from "./../controllers/auth.controller"
 import * as categoriaController from "./../controllers/categoria.controller"
+import * as sucursalController from "./../controllers/sucursal.controller"
 
 import * as authMiddleware from "./../middlewares/auth.middleware"
 // rutas
@@ -30,5 +31,12 @@ router.post("/categoria", categoriaController.guardar)
 router.get("/categoria/:id", categoriaController.mostrar)
 router.put("/categoria/:id", categoriaController.modificar)
 router.delete("/categoria/:id", categoriaController.eliminar)
+
+// rutas sucursales
+router.get("/sucursal", sucursalController.listar)
+router.post("/sucursal", sucursalController.guardar)
+router.get("/sucursal/:id", sucursalController.mostrar)
+router.put("/sucursal/:id", sucursalController.modificar)
+router.delete("/sucursal/:id", sucursalController.eliminar)
 
 module.exports = router

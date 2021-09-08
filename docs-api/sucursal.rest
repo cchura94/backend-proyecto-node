@@ -1,0 +1,29 @@
+GET http://127.0.0.1:3000/api/sucursal
+
+###
+
+POST http://127.0.0.1:3000/api/sucursal
+Content-Type: application/json
+
+{
+    "nombre": "Sucursal 3",
+    "telefono": "2234232",
+    "direccion": "Av. 7 de Agosto"
+}
+
+### Mostrar una Sucursal
+GET http://127.0.0.1:3000/api/sucursal/2
+
+### Modificar usa Sucursal
+
+PUT http://127.0.0.1:3000/api/sucursal/2
+Content-Type: application/json
+
+{
+    "nombre": "Sucursal DOS",
+    "telefono": "2s22342",
+    "direccion": "Av. 6 de Agosto, Zona 123"
+}
+
+### Eliminar una Sucursal
+DELETE http://127.0.0.1:3000/api/sucursal/3
