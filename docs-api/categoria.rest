@@ -1,0 +1,27 @@
+GET http://127.0.0.1:3000/api/categoria
+
+###
+
+POST http://127.0.0.1:3000/api/categoria
+Content-Type: application/json
+
+{
+    "nombre": "MUEBLES",
+    "detalle": "Muebles para oficinas"
+}
+
+###
+
+GET http://127.0.0.1:3000/api/categoria/3
+
+###
+PUT http://127.0.0.1:3000/api/categoria/2
+Content-Type: application/json
+
+{
+    "nombre": "MUEBLES DE MADERA",
+    "detalle": "Muebles para oficinas de madera"
+}
+
+####
+DELETE http://127.0.0.1:3000/api/categoria/1

@@ -196,3 +196,17 @@ npx sequelize-cli model:generate --name Usuario --attributes nombre:string,corre
 ```
 npx sequelize-cli db:migrate
 ```
+
+---
+# generando los archivos (Model y migrations)
+
+```
+npx sequelize-cli model:generate --name Categoria --attributes nombre:string,detalle:text
+
+npx sequelize-cli model:generate --name Producto --attributes nombre:string,precio:decimal,imagen:string,descripcion:text,categoriaId:integer
+
+npx sequelize-cli model:generate --name Sucursal --attributes nombre:string,direccion:string,telefono:string
+
+npx sequelize-cli model:generate --name ProductoSucursal --attributes productoId:integer,sucursalId:integer,stock:integer
+
+```

@@ -2,6 +2,8 @@ import express from 'express'
 let router = express.Router();
 import * as usuarioController from "./../controllers/usuario.controller"
 import * as authController from "./../controllers/auth.controller"
+import * as categoriaController from "./../controllers/categoria.controller"
+
 import * as authMiddleware from "./../middlewares/auth.middleware"
 // rutas
 router.get("/", function(req, res){
@@ -21,5 +23,12 @@ router.post("/usuario", usuarioController.guardar);
 router.get("/usuario/:id", usuarioController.mostrar);
 router.put("/usuario/:id", usuarioController.modificar);
 router.delete("/usuario/:id", usuarioController.eliminar);
+
+// rutas categorias
+router.get("/categoria", categoriaController.listar)
+router.post("/categoria", categoriaController.guardar)
+router.get("/categoria/:id", categoriaController.mostrar)
+router.put("/categoria/:id", categoriaController.modificar)
+router.delete("/categoria/:id", categoriaController.eliminar)
 
 module.exports = router
