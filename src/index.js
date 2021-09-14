@@ -2,11 +2,15 @@
 // const express = require("express");
 import express from "express"
 import router from "./routes/index"
+import cors from "cors"
 
 // variables auxiliares
 let PORT = 3000
 // configuración de módulos
 let app = express();
+
+// CORS
+app.use(cors())
 
 // captura de datos del cliente en formato json (req.body)
 app.use(express.json())
