@@ -19,7 +19,8 @@ router.get("/saludo", function(req, res){
 router.post("/login", authController.login);
 
 // rutas usuario
-router.get("/usuario", authMiddleware.auth, usuarioController.listar);
+// router.get("/usuario", authMiddleware.auth, usuarioController.listar);
+router.get("/usuario", usuarioController.listar);
 router.post("/usuario", usuarioController.guardar);
 router.get("/usuario/:id", usuarioController.mostrar);
 router.put("/usuario/:id", usuarioController.modificar);

@@ -14,14 +14,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Usuario.init({
-    nombre: DataTypes.STRING,
-    correo: DataTypes.STRING,
-    password: DataTypes.STRING,
-    estado: DataTypes.BOOLEAN,
+    nombre: {
+      type: DataTypes.STRING, 
+      allowNull:false
+    },
+    correo: {
+      type: DataTypes.STRING(200), 
+      validate: {
+        isEmail: true
+      },
+      unique: true
+    },
+    password: {
+      type: DataTypes.STRING(200), 
+      allowNull:false
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
     rol: DataTypes.STRING(20)
   }, {
     sequelize,
     modelName: 'Usuario',
+    indexes: [{
+      fields: ['correo'],
+      unique: true,
+    }]
   });
   return Usuario;
 };

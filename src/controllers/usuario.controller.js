@@ -24,17 +24,24 @@ export const listar = async function(req, res){
 export const guardar = async (req, res) => {
     // async/await
     try{
-        console.log("ANTES: ", req.body);
-        let BCRYPT_SALT_ROUNDS = 12
-        req.body.password = await bcrypt.hash(req.body.password, BCRYPT_SALT_ROUNDS)
-        let datos = req.body
-
-        console.log("DESPUES: ", req.body);        
-
-        let respuesta = await models.Usuario.create(datos)
-        res.json({mensaje: "Usuario registrado"});
+        let user = await models.Usuario.findOne({
+            where: {correo: req.body.correo}
+        })
+        if(!user){
+            console.log("ANTES: ", req.body);
+            let BCRYPT_SALT_ROUNDS = 12
+            req.body.password = await bcrypt.hash(req.body.password, BCRYPT_SALT_ROUNDS)
+            let datos = req.body
+    
+            console.log("DESPUES: ", req.body);        
+    
+            let respuesta = await models.Usuario.create(datos)
+            res.json({mensaje: "Usuario registrado", error:false});
+        }else{
+            res.json({mensaje: 'El correo ya existe', error: true});
+        }
     }catch(error){
-        res.json(error);
+        res.json({errors: error, mensaje: 'Ocurrió un problema al registra el usuario', error: true});
     }    
 }
 
