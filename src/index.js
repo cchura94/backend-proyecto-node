@@ -9,6 +9,9 @@ let PORT = 3000
 // configuración de módulos
 let app = express();
 
+// archivos estaticos (imagenes)
+app.use(express.static('public'))
+
 // CORS
 app.use(cors())
 

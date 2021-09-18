@@ -1,11 +1,26 @@
 import express from 'express'
+import multer from "multer"
 let router = express.Router();
 import * as usuarioController from "./../controllers/usuario.controller"
 import * as authController from "./../controllers/auth.controller"
 import * as categoriaController from "./../controllers/categoria.controller"
 import * as sucursalController from "./../controllers/sucursal.controller"
+import * as productoController from "./../controllers/producto.controller"
 
 import * as authMiddleware from "./../middlewares/auth.middleware"
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/imagenes')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, uniqueSuffix + '-' + file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
+
 // rutas
 router.get("/", function(req, res){
     res.json({mensaje: "Bienvenido a la api del proyecto"})
@@ -39,5 +54,13 @@ router.post("/sucursal", sucursalController.guardar)
 router.get("/sucursal/:id", sucursalController.mostrar)
 router.put("/sucursal/:id", sucursalController.modificar)
 router.delete("/sucursal/:id", sucursalController.eliminar)
+
+
+// rutas productos
+router.get("/producto", productoController.listar)
+router.post("/producto", upload.single('imagen'), productoController.guardar)
+router.get("/producto/:id", productoController.mostrar)
+router.put("/producto/:id", productoController.modificar)
+router.delete("/producto/:id", productoController.eliminar)
 
 module.exports = router
