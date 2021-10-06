@@ -1,8 +1,17 @@
 import models from "./../models"
 
 export const listar = async function(req, res){
+    // 127.0.0.1:3000/api/producto?page=1&limit=10
     try{
-        let lista_productos = await models.Producto.findAll();
+        // paginación
+        let page = req.query.page;
+        let limit = req.query.limit;
+        let offset = 0 + (page - 1) * limit;
+
+        let lista_productos = await models.Producto.findAndCountAll({
+            limit: limit,
+            offset: offset
+        });
         return res.status(200).send(lista_productos);
     }catch(error){
         return res.status(500).send({
@@ -72,6 +81,20 @@ export const eliminar = async function(req, res){
             id
         }
     })
+    
 
     return res.status(201).send({mensaje: "Producto Eliminado"});
+}
+
+export const asignar_producto = async function(req, res){
+    let id = req.params.id
+    let datos= req.body;
+
+    let sucursal = await models.Sucursal.findOne({
+        where: {id: datos.sucursal_id}
+    });
+
+    await sucursal.addProducto(id, {stock: datos.stock})
+    return res.status(201).send({mensaje: "Producto Asignado a la sucursal"});
+    //jan.addProject(homework, { started: false }) 
 }

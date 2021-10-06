@@ -2,7 +2,9 @@ import models from "./../models"
 
 export const listar = async function(req, res){
     try{
-        let lista_sucursales = await models.Sucursal.findAll();
+        let lista_sucursales = await models.Sucursal.findAll({
+            include: models.Producto
+        });
         return res.status(200).send(lista_sucursales);
     }catch(error){
         return res.status(500).send({

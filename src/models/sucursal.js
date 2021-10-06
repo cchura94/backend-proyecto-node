@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Sucursal.belongsToMany(models.Producto, {
+        through: {
+          model: 'ProductoSucursal',
+          scope: {stock: 1}
+        },
+        foreignKey: "sucursalId"
+      })
     }
   };
   Sucursal.init({

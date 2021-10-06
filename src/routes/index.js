@@ -55,12 +55,14 @@ router.get("/sucursal/:id", sucursalController.mostrar)
 router.put("/sucursal/:id", sucursalController.modificar)
 router.delete("/sucursal/:id", sucursalController.eliminar)
 
-
 // rutas productos
+router.post("/producto/:id/asignar_producto", productoController.asignar_producto)
+
 router.get("/producto", productoController.listar)
 router.post("/producto", upload.single('imagen'), productoController.guardar)
 router.get("/producto/:id", productoController.mostrar)
-router.put("/producto/:id", productoController.modificar)
+router.put("/producto/:id", upload.single('imagen'), productoController.modificar)
 router.delete("/producto/:id", productoController.eliminar)
+
 
 module.exports = router

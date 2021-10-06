@@ -9,8 +9,27 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    
     static associate(models) {
       // define association here
+      // N:1
+      models.Producto.belongsTo(models.Categoria, {
+        foreignKey: "categoriaId"
+      });
+      //N:M
+      models.Producto.belongsToMany(models.Sucursal, {
+        through: {
+          model: 'ProductoSucursal',
+          scope: {stock: 1}
+        },
+        foreignKey: "productoId"
+      })
+
+      /**
+       * Project.belongsToMany(User, { through: UserProjects })
+        jan.addProject(homework, { started: false }) 
+       */
+
     }
   };
   Producto.init({
